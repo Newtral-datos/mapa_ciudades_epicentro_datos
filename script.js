@@ -1,4 +1,42 @@
 document.addEventListener("DOMContentLoaded", function() {
+  const ALLOWED_DOMAIN = 'newtral.es';
+  const WEB_URL = 'https://www.newtral.es/edificios-ciudades-catastro/20250521/';
+
+  const ref = document.referrer;
+  const isAllowed = ref && ref.includes(ALLOWED_DOMAIN);
+
+  if (!isAllowed) {
+    document.body.innerHTML = `
+      <div style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Helvetica, Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+        background: #f5f5f5;
+      ">
+        <p style="font-size: 1.1rem; color: #333; margin-bottom: 20px; max-width: 400px; line-height: 1.5;">
+          Esta visualización está disponible en <strong>Newtral</strong>.
+        </p>
+        <a href="${WEB_URL}" style="
+          background: #000;
+          color: #fff;
+          padding: 12px 28px;
+          text-decoration: none;
+          font-family: Helvetica, Arial, sans-serif;
+          font-size: 0.95rem;
+          letter-spacing: 0.02em;
+        ">
+          Ver en Newtral →
+        </a>
+      </div>
+    `;
+    return;
+  }
+
   mapboxgl.accessToken = 'pk.eyJ1IjoibmV3dHJhbCIsImEiOiJjazJrcDY4Y2gxMmg3M2JvazU4OXV6NHZqIn0.VO5GkvBq_PSJHvX7T8H9jQ';
 
   const map = new mapboxgl.Map({
