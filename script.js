@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
           Esta visualización está disponible en <strong>Newtral</strong>.
         </p>
         <a href="${WEB_URL}" style="
-          background: #000;
-          color: #fff;
+          background: #01f3b3;
+          color: #000000;
           padding: 12px 28px;
           text-decoration: none;
           font-family: Helvetica, Arial, sans-serif;
